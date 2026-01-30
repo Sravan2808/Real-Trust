@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Client = require('../models/Client');
+const Client = require('../models/client');
 const { upload, processImage } = require('../middleware/upload');
 
 router.get('/',async(req,res)=>{
@@ -24,7 +24,7 @@ router.get("/:id",async(req,res)=>{
     }
 })
 
-router.post("/",upload.single(image),processImage,async(req,res)=>{
+router.post("/",upload.single('image'),processImage,async(req,res)=>{
     try {
         const {name,description,designation} = req.body;
         if(!req.file){
